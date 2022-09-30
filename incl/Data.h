@@ -1,17 +1,17 @@
 namespace Data{
 struct hostData{
-    int vxfRef;
-    int axvRef;
-    int vxyRef;
-    int psiDtOpt;
+    double vxfRef;
+    double axvRef;
+    double vxyRef;
+    double psiDtOpt;
 };
 struct sensorData{
-    int dx;
-    int dy;
-    int vx;
-    int vy;
-    int ax;
-    int az;
+    double dx;
+    double dy;
+    double vx;
+    double vy;
+    double ax;
+    double az;
 
 };
 enum objectType{
@@ -24,12 +24,12 @@ enum objectType{
     carOrTruck=6U
 };
 struct cameraData{
-    int dx;
-    int dy;
-    int vx;
-    int vy;
-    int ax;
-    int az;
+    double dx;
+    double dy;
+    double vx;
+    double vy;
+    double ax;
+    double az;
     objectType type;
 };
 
