@@ -62,6 +62,7 @@ class Reader{
         unsigned int bufferSize=1024;
         static char* sensorBuffer=new char[bufferSize];
         static char *hostbuffer=new char[bufferSize];
+        static MeasuredData data;
         //sensor->getline(hostbuffer,bufferSize);
         //parse the read line from host
         if(readHost){
@@ -73,10 +74,15 @@ class Reader{
                 std::getline(ss,substr,',');
                 v.push_back(atoi(substr.c_str()));
             }
-            
-
+            data.hostInfo.t=v[0];
+            data.hostInfo.axvRef=v[1]/2048;
+            data.hostInfo.ayvRef=v[2]/2048;
+            data.hostInfo.psiDtOpt=v[3]/16384;
+            data.hostInfo.vxvRef=v[4]/256;
+            data.hostInfo.vyvRef=v[5]/256;
         }
         readHost=!readHost;
+        return data;
     }
     private:
         std::fstream *host;
