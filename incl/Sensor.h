@@ -11,7 +11,12 @@ namespace signal{
             double yp;
             double zp;
     };
-
-
-
+    class Camera{
+        public:
+            Camera( double x, double y, double z);
+        private:
+            double xp;
+            double yp;
+            double zp;
+    };    
 }
