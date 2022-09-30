@@ -1,17 +1,24 @@
+#include <string>
+#include <iostream>
+#include <fstream>
 namespace Data{
 struct hostData{
-    double vxfRef;
+    double vxvRef;
     double axvRef;
-    double vxyRef;
+    double vyvRef;
+    double ayvRef;
     double psiDtOpt;
+    unsigned int absRefTime;
 };
 struct sensorData{
     double dx;
     double dy;
+    double dz;
     double vx;
     double vy;
     double ax;
     double az;
+    double p;
 
 };
 enum objectType{
@@ -28,14 +35,28 @@ struct cameraData{
     double dy;
     double vx;
     double vy;
-    double ax;
-    double az;
     objectType type;
 };
-
 struct MeasuredData{
     hostData hostInfo;
     sensorData sensInfo[4][15];
     cameraData camInfo;
 };
-}
+class Reader{
+    public:
+    Reader(std::string hostFile, std::string sensorFile){
+        host=new std::fstream(hostFile);
+ 
+        while(host->get()!='\n'){};
+        sensor=new std::fstream(sensorFile);
+        while(sensor->get()!='\n'){};
+    }
+    MeasuredData readData(){
+
+    }
+    private:
+        std::fstream *host;
+        std::fstream *sensor;
+    
+};
+};
