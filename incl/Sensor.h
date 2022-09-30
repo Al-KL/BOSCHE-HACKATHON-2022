@@ -1,5 +1,5 @@
 #include "Data.h"    
-namespace signal{
+namespace sensor{
     class Radar{
         public:
             Radar(double azAng,double elAng, double x,
