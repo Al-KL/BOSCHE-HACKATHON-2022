@@ -1,10 +1,9 @@
+namespace Data{
 struct hostData{
     int vxfRef;
     int axvRef;
     int vxyRef;
     int psiDtOpt;
-
-
 };
 struct sensorData{
     int dx;
@@ -39,3 +38,4 @@ struct MeasuredData{
     sensorData sensInfo[4][15];
     cameraData camInfo;
 };
+}
