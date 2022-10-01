@@ -1,4 +1,4 @@
-#include "Sensor.h"
+#include "../inc/Sensor.h"
 namespace sensor{
 Radar::Radar(double azAng,double elAng, double x,double y, double  z){
     az_angle=azAng;
