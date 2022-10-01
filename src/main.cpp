@@ -20,6 +20,7 @@
 #define right_front_z 0.5156
 #define right_rear_z -0.7359
 
+
 int main(int argc, char *argv[]){
     if(argc!=3){
      std::cout<<"Wrong args";   
