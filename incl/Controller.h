@@ -21,6 +21,7 @@ namespace control {
 		sensor::Radar *radar[4];
 		bool intialised;
 
+		void normalizeRadar ()
 
 	};
 	static Controller* theController = NULL;
