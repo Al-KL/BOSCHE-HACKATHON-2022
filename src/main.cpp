@@ -25,9 +25,11 @@ int main(int argc, char *argv[]){
         return 0;
     }
     Data::Reader dataReader(argv[1],argv[2]);
-    Data::MeasuredData measurement= dataReader.readData();
     sensor::Radar radarLF(left_front_azmuth,left_front_elevation,left_front_x,left_front_y,left_front_z);
     sensor::Radar radarLR(left_rear_azmuth,left_rear_elevation,left_rear_x,left_rear_y,left_rear_z);
     sensor::Radar radarRF(right_front_azmuth,right_front_elevation,right_front_x,right_front_y,right_front_z);
     sensor::Radar radatRR(right_rear_azmuth,right_rear_elevation,right_rear_x,right_rear_y,right_rear_z);
+    while(dataReader.isValid()){
+            Data::MeasuredData measurement= dataReader.readData();
+    }
 }
