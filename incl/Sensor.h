@@ -1,4 +1,5 @@
-#include "Data.h"    
+#include "Data.h"
+#include <vector>    
 namespace sensor{
     class Radar{
         public:
@@ -10,7 +11,7 @@ namespace sensor{
             double xp;
             double yp;
             double zp;
-            Data::sensorData data;
+            std::vector<Data::sensorData> data;
 
     };
     class Camera{
@@ -20,6 +21,6 @@ namespace sensor{
             double xp;
             double yp;
             double zp;
-            Data::cameraData data;  
+            std::vector<Data::cameraData> data;  
     };    
 }
