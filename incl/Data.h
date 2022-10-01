@@ -52,10 +52,12 @@ class Reader{
     public:
     Reader(std::string hostFile, std::string sensorFile){
         host=new std::fstream(hostFile);
- 
-        while(host->get()!='\n'){};
         sensor=new std::fstream(sensorFile);
-        while(sensor->get()!='\n'){};
+        if(host->is_open() && sensor->is_open()){
+            valid=true;
+            while(host->get()!='\n'){};
+            while(sensor->get()!='\n'){};
+        }
     }
     MeasuredData readData(){
         static bool readHost=true;
@@ -63,6 +65,9 @@ class Reader{
         static char* sensorBuffer=new char[bufferSize];
         static char *hostbuffer=new char[bufferSize];
         static MeasuredData data;
+        if(!host->good() || !sensor->good()){
+            valid=false;
+        }
         //sensor->getline(hostbuffer,bufferSize);
         //parse the read line from host
         if(readHost){
@@ -84,9 +89,13 @@ class Reader{
         readHost=!readHost;
         return data;
     }
+    bool isValid(){
+        return valid;
+    }
     private:
         std::fstream *host;
         std::fstream *sensor;
+        bool valid;
     
 };
 };
