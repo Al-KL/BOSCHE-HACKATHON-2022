@@ -45,8 +45,8 @@ struct cameraData{
 };
 struct MeasuredData{
     hostData hostInfo;
-    sensorData sensInfo[4][15];
-    cameraData camInfo;
+    sensorData sensInfo[4][10];
+    cameraData camInfo[15];
 };
 class Reader{
     public:
@@ -69,6 +69,86 @@ class Reader{
             valid=false;
         }
         //sensor->getline(hostbuffer,bufferSize);
+                std::vector<double> l;
+        host->getline(sensorBuffer, bufferSize);
+        std::stringstream sb(sensorBuffer);
+        while (sb.good()) {
+            std::string substr1;
+            std::getline(sb, substr1, ',');
+            l.push_back(atoi(substr1.c_str()));
+        }
+        data.camInfo[0..14]->t = data.sensInfo[0..4]->t = l[0];
+        int j=2;
+        for (int i = 0, i < 15, i++) {
+            data.camInfo[i].dx = l[j] / 128;
+            j++
+        }
+        for (int i = 0, i < 15, i++) {
+            data.camInfo[i].dy = l[j] / 128;
+            j++
+        }
+        for (int i = 0, i < 15, i++) {
+            data.camInfo[i].type = l[j] ;//not really sure
+            j++
+        }
+        for (int i = 0, i < 15, i++) {
+            data.camInfo[i].vx = l[j] / 256;
+            j++
+        }
+        for (int i = 0, i < 15, i++) {
+            data.camInfo[i].vy = l[j] / 256;
+            j++
+        }
+        j = j + 3;//timestamp
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].ax = l[j] / 2048;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].ay = l[j] / 2048;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].dx = l[j] / 128;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].dy = l[j] / 128;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].dz = l[j] / 128;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].p= l[j] / 128;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].vx= l[j] / 256;
+                j++
+            }
+        }
+        for (int i = 0; i < 10, i++) {
+            for (int k = 0; k < 4; k++) {
+                data.sensInfo[k][i].vy = l[j] / 256;
+                j++
+            }
+        }
+
         //parse the read line from host
         if(readHost){
             std::vector<double> v;
