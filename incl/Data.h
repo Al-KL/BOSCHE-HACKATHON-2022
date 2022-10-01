@@ -178,5 +178,9 @@ class Reader{
         bool valid;
     
     //trying commit
+
+
+
+
 };
 };
