@@ -10,6 +10,8 @@ namespace sensor{
             double xp;
             double yp;
             double zp;
+            Data::sensorData data;
+
     };
     class Camera{
         public:
@@ -18,5 +20,6 @@ namespace sensor{
             double xp;
             double yp;
             double zp;
+            Data::cameraData data;  
     };    
 }
