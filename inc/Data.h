@@ -70,13 +70,13 @@ class Reader{
             return;
         }
         //sensor->getline(hostbuffer,bufferSize);
-                std::vector<double> l;
+        std::vector<double> l;
         host->getline(sensorBuffer, bufferSize);
         std::stringstream sb(sensorBuffer);
         while (sb.good()) {
             std::string substr1;
             std::getline(sb, substr1, ',');
-            l.push_back(atoi(substr1.c_str()));
+            l.push_back(atof(substr1.c_str()));
         }
         for (int i=0; i<15;i++){
             data.camInfo[0..14]->t = l[0];
