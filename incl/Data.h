@@ -77,75 +77,82 @@ class Reader{
             std::getline(sb, substr1, ',');
             l.push_back(atoi(substr1.c_str()));
         }
-        data.camInfo[0..14]->t = data.sensInfo[0..4]->t = l[0];
+        for (int i=0; i<15;i++){
+            data.camInfo[0..14]->t = l[0];
+        }
+        
+        for(int i=0; i<4;i++){
+            data.sensInfo[0..4]->t = l[0];
+        }
+        
         int j=2;
-        for (int i = 0, i < 15, i++) {
+        for (int i = 0; i < 15; i++) {
             data.camInfo[i].dx = l[j] / 128;
-            j++
+            j++;
         }
-        for (int i = 0, i < 15, i++) {
+        for (int i = 0; i < 15; i++) {
             data.camInfo[i].dy = l[j] / 128;
-            j++
+            j++;
         }
-        for (int i = 0, i < 15, i++) {
+        for (int i = 0; i < 15; i++) {
             data.camInfo[i].type = static_cast<objectType>((int)l[j]) ;//not really sure
-            j++
+            j++;
         }
-        for (int i = 0, i < 15, i++) {
+        for (int i = 0; i < 15; i++) {
             data.camInfo[i].vx = l[j] / 256;
-            j++
+            j++;
         }
-        for (int i = 0, i < 15, i++) {
+        for (int i = 0; i < 15; i++) {
             data.camInfo[i].vy = l[j] / 256;
-            j++
+            j++;
         }
         j = j + 3;//timestamp
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].ax = l[j] / 2048;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].ay = l[j] / 2048;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].dx = l[j] / 128;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].dy = l[j] / 128;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].dz = l[j] / 128;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].p= l[j] / 128;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].vx= l[j] / 256;
-                j++
+                j++;
             }
         }
-        for (int i = 0; i < 10, i++) {
+        for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 4; k++) {
                 data.sensInfo[k][i].vy = l[j] / 256;
-                j++
+                j++;
             }
         }
 
