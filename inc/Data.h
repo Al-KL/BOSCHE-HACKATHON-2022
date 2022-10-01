@@ -45,8 +45,8 @@ struct cameraData{
 };
 struct MeasuredData{
     hostData hostInfo;
-    std::vector<sensorData> sensInfo;
-    std::vector<cameraData> camInfo;
+    std::vector<sensorData[10]> sensInfo;
+    std::vector<cameraData[15]> camInfo;
 };
 class Reader{
     public:
