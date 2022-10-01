@@ -67,6 +67,7 @@ class Reader{
         static MeasuredData data;
         if(!host->good() || !sensor->good()){
             valid=false;
+            return;
         }
         //sensor->getline(hostbuffer,bufferSize);
                 std::vector<double> l;
