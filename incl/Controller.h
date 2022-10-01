@@ -13,7 +13,7 @@ namespace control {
 			}
 			return theController;
 		}
-		void initialise(sensor::Camera* camera; sensor::Radar* radar[4];)
+		void initialise(sensor::Camera* camera, sensor::Radar* radar[4]);
 
 	private:
 		static Controller* theController;//init to null
