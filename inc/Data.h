@@ -22,7 +22,7 @@ struct sensorData{
     double vx;
     double vy;
     double ax;
-    double az;
+    double ay;
     double p;
 
 };
@@ -45,8 +45,8 @@ struct cameraData{
 };
 struct MeasuredData{
     hostData hostInfo;
-    std::vector<sensorData[10]> sensInfo;
-    std::vector<cameraData[15]> camInfo;
+    sensorData sensInfo[4][10];
+    cameraData camInfo[15];
 };
 class Reader{
     public:
@@ -67,7 +67,7 @@ class Reader{
         static MeasuredData data;
         if(!host->good() || !sensor->good()){
             valid=false;
-            return;
+            return data;//Throw error later
         }
         //sensor->getline(hostbuffer,bufferSize);
         std::vector<double> l;
@@ -79,11 +79,11 @@ class Reader{
             l.push_back(atof(substr1.c_str()));
         }
         for (int i=0; i<15;i++){
-            data.camInfo[0..14]->t = l[0];
+            data.camInfo[i].t = l[0];
         }
         
         for(int i=0; i<4;i++){
-            data.sensInfo[0..4]->t = l[0];
+            data.sensInfo[i][0].t = l[0];
         }
         
         int j=2;
