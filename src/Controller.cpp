@@ -37,4 +37,5 @@ Controller::Controller(){
 	radar[3]=new sensor::Radar (right_rear_azmuth, right_rear_elevation, right_rear_x, right_rear_y, right_rear_z);
 	camera=new sensor::Camera(camera_x,camera_y,camera_z);
 }
+
 }
