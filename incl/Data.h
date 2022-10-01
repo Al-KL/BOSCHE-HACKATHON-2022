@@ -81,6 +81,6 @@ class Reader{
     private:
         std::fstream *host;
         std::fstream *sensor;
-    
+    //trying commit
 };
 };
