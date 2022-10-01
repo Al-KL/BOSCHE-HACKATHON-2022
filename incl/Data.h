@@ -157,7 +157,7 @@ class Reader{
             while(ss.good()){
                 std::string substr;
                 std::getline(ss,substr,',');
-                v.push_back(atoi(substr.c_str()));
+                v.push_back(atof(substr.c_str()));
             }
             data.hostInfo.t=v[0];
             data.hostInfo.axvRef=v[1]/2048;
