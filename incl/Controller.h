@@ -7,7 +7,7 @@ namespace sensor {
 namespace control {
 	class Controller {
 	public:
-		static controller* get() {
+		static Controller* get() {
 			if (theController == NULL) {
 				theController = new Controller;
 			}
@@ -20,6 +20,6 @@ namespace control {
 		sensor::Camera *camera;
 		sensor::Radar *radar[4];
 	};
-	static Controller theController = NULL;
+	static Controller* theController = NULL;
 
 }
