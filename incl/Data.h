@@ -97,5 +97,6 @@ class Reader{
         std::fstream *sensor;
         bool valid;
     
+    //trying commit
 };
 };
