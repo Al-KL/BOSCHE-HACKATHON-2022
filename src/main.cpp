@@ -23,7 +23,8 @@
 
 int main(int argc, char *argv[]){
     if(argc!=3){
-     std::cout<<"Wrong args";   
+        std::cout<<"Wrong args";   
+        return 0;
     }
 
     Data::Reader dataReader(argv[1],argv[2]);
