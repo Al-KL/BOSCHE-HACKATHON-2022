@@ -1,5 +1,5 @@
-#include "Controller.h"
-#include "Sensor.h"
+#include "../inc/Controller.h"
+#include "../inc/Sensor.h"
 #define left_front_azmuth 42
 #define left_rear_azmuth 135
 #define right_front_azmuth -42
