@@ -1,7 +1,11 @@
 #include "Data.h"
-#include <vector>    
+#include <vector>
+namespace control{
+    class Controller;
+};    
 namespace sensor{
     class Radar{
+        friend class control::Controller;
         public:
             Radar(double azAng,double elAng, double x,
             double y, double  z);
@@ -16,6 +20,7 @@ namespace sensor{
     };
     class Camera{
         public:
+            friend class control::Controller;
             Camera( double x, double y, double z);
         private:
             double xp;
