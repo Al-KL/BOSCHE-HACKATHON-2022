@@ -6,6 +6,5 @@ int main(int argc, char *argv[]){
 
     Data::Reader dataReader(argv[1],argv[2]);
     Data::MeasuredData measurement= dataReader.readData();
-
-
+    
 }
