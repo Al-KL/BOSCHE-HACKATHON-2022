@@ -27,13 +27,13 @@ struct sensorData{
 
 };
 enum objectType{
-    noDetection=0U,
-    truck=1U,
-    car =2U,
-    motorbike=3U, 
-    bicycle =4U, 
-    pedestrian =5U,
-    carOrTruck=6U
+    noDetection=0,
+    truck=1,
+    car =2,
+    motorbike=3, 
+    bicycle =4, 
+    pedestrian =5,
+    carOrTruck=6
 };
 struct cameraData{
     double t;
@@ -88,7 +88,7 @@ class Reader{
             j++
         }
         for (int i = 0, i < 15, i++) {
-            data.camInfo[i].type = l[j] ;//not really sure
+            data.camInfo[i].type = static_cast<objectType>((int)l[j]) ;//not really sure
             j++
         }
         for (int i = 0, i < 15, i++) {
