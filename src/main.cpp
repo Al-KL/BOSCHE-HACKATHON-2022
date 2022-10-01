@@ -27,6 +27,9 @@ int main(int argc, char *argv[]){
 
     Data::Reader dataReader(argv[1],argv[2]);
     Data::MeasuredData measurement= dataReader.readData();
+    sensor::Radar(left_front_azmuth,left_front_elevation,left_front_x,left_front_y,left_front_z);
+    sensor::Radar(left_rear_azmuth,left_rear_elevation,left_rear_x,left_rear_y,left_rear_z);
+    
 
 
 }
