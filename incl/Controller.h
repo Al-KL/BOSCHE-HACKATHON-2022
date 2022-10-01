@@ -19,6 +19,8 @@ namespace control {
 		static Controller* theController;//init to null
 		sensor::Camera *camera;
 		sensor::Radar *radar[4];
+
+
 	};
 	static Controller* theController = NULL;
 
